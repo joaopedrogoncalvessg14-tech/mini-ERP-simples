@@ -249,3 +249,4 @@ tk.Button(footer, text="Excluir Selecionado", bg="red", fg="white",
 checar_alertas()
 app.mainloop()
 
+
