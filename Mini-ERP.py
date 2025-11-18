@@ -250,3 +250,4 @@ checar_alertas()
 app.mainloop()
 
 
+
