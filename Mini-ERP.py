@@ -35,6 +35,18 @@ def atualizar():
     for row in cur.execute("SELECT * FROM produtos"):
         tree.insert("", tk.END, values=row)
 
+def cadastrar():
+    try:
+        cur.execute("INSERT INTO produtos VALUES (?, ?, ?, ?, ?)", (
+            e_id.get(), e_nome.get(), e_cat.get(),
+            float(e_preco.get()), int(e_qtd.get())
+        ))
+        con.commit()
+        atualizar()
+        messagebox.showinfo("OK", "Produto cadastrado!")
+        checar_alertas()
+    except:
+        messagebox.showerror("Erro", "ID já existe ou dados inválidos.")
 
 
 def movimentar(tipo):
@@ -236,3 +248,4 @@ tk.Button(footer, text="Excluir Selecionado", bg="red", fg="white",
 
 checar_alertas()
 app.mainloop()
+
